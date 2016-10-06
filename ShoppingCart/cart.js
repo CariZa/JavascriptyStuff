@@ -3,6 +3,7 @@
 //Creating a very loosely coupled cart object
 
 //Strategy pattern 
+// Interface
 
 var Cart = function() {
 
