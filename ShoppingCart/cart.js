@@ -29,7 +29,7 @@ var Cart = function() {
             this.removeAction(item);
         },
         get : function() {
-            this.getAction();
+            return this.getAction();
         }
     };
 

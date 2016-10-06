@@ -10,14 +10,13 @@
   <script src="taxEquations.js"></script>
   <script>
     
-    var product = {
+     var product = {
             title: "Item 1",
             once_off: 2.23,
             monthly: 3.33
-        };
+      };
     
       var items = new LineItems();
-      items.add(product);
 
       var cart = new Cart();
       //link the items behavior
@@ -25,17 +24,35 @@
       cart.setRemoveAction(items.remove);
       cart.setGetAction(items.get);
 
+      //Add a product
+      cart.add(product);
+      var lineitems = cart.get();
+
+      //Initiate the calculate functionality
       var calculate = new Calculate();
       calculate.setEquation(Equation1);
       calculate.setTaxEquation(TaxEquation1);
 
+      //Check to calculate methods
       var total = calculate.total([
-        items.get(),
+        lineitems,
         'once_off'
       ]);
       var tax = calculate.tax(total);
 
-      debugger;
+      //Add a product and recheck the methods adapt
+      cart.add(product);
+      var lineitems = cart.get();
+      total = calculate.total([
+        lineitems,
+        'once_off'
+      ]);
+      tax = calculate.tax(total);
+
+      //Testing the remove functionality
+      var prods = cart.get();
+      cart.remove(product);
+      prods = cart.get();
 
   </script>
 </body>

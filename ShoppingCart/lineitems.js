@@ -2,17 +2,20 @@
 
 var LineItems = function() {
 
+    //make global to class
+    var lineitems = [];
+
     return {
         lineitems : [],
         add : function(lineitem) {
-            this.lineitems.push(lineitem);
+            lineitems.push(lineitem);
         },
-        remove : function(lineitem) {
-            var index = this.lineitems.indexOf(lineitem);
-            this.lineitems.splice(index, 1);
+        remove : function(refThis, lineitem) {
+            var index = lineitems.indexOf(lineitem);
+            lineitems.splice(index, 1);
         },
         get : function() {
-            return this.lineitems;
+            return lineitems;
         }
     }
 
