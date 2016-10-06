@@ -1,0 +1,1 @@
+### This is a lightweight javascript shopping system using design patterns

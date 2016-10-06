@@ -1,0 +1,42 @@
+<html>
+<head>
+</head>
+<body>
+  <h1>Practicing javascripty stuff - Patterns</h1>
+  <script src="calculate.js"></script>
+  <script src="cart.js"></script>
+  <script src="equations.js"></script>
+  <script src="lineitems.js"></script>
+  <script src="taxEquations.js"></script>
+  <script>
+    
+    var product = {
+            title: "Item 1",
+            once_off: 2.23,
+            monthly: 3.33
+        };
+    
+      var items = new LineItems();
+      items.add(product);
+
+      var cart = new Cart();
+      //link the items behavior
+      cart.setAddAction(items.add);
+      cart.setRemoveAction(items.remove);
+      cart.setGetAction(items.get);
+
+      var calculate = new Calculate();
+      calculate.setEquation(Equation1);
+      calculate.setTaxEquation(TaxEquation1);
+
+      var total = calculate.total([
+        items.get(),
+        'once_off'
+      ]);
+      var tax = calculate.tax(total);
+
+      debugger;
+
+  </script>
+</body>
+</html>
