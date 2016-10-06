@@ -2,7 +2,7 @@
 
 Usage:
 
-`
+```
  <script>
     
     var product = {
@@ -33,4 +33,4 @@ Usage:
       debugger;
 
   </script>
-  `
+  ```
